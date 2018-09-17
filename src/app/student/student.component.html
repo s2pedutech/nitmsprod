@@ -1,3 +1,36 @@
-<p>
-  student works!
-</p>
+<app-navbar></app-navbar>
+<br><br>
+<div *ngIf="currentSection === 'login' " style="width: 400px;" class="mx-auto border">
+
+    <h1> NITMS Student Login</h1>
+<div>
+    <form [formGroup]="loginForm" (submit)="login()">
+        <div style="padding-left:20px">
+            <label>
+                Username*:<br>
+                <input type="text" formControlName="uname">
+            </label>
+        </div>
+        <div style="padding-left:20px">
+            <label>
+                Password*:<br>
+                <input type="password" formControlName="password">
+            </label>
+        </div>
+        <div style="padding-left: 40px">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+        
+    </form>
+</div>
+</div>
+
+<div *ngIf="currentSection === 'student'">
+    
+    <div>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+        <h1>Name here</h1>
+        <nav class="navbar navbar-expand-lg navbar-primary bg-warning">
+        </nav>
+    </div>
+</div>

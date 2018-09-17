@@ -12,4 +12,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  studentVerify()
+  {
+    
+  }
+  
+  studentLogin()
+  {
+    
+  }
 }
