@@ -8,7 +8,10 @@ import * as firebase from 'firebase';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-
+    
+    display='none';
+    displayImage="";
+    currentStudent:any = {};
     currentSection:string = "login";
     loginForm: FormGroup = new FormGroup({
     uname: new FormControl('', Validators.required),
@@ -19,6 +22,17 @@ export class StudentComponent implements OnInit {
   ngOnInit() {
   }
   
+  viewImage(img)
+    {
+        this.display='block';
+        this.displayImage = img;
+    }
+    
+    closeModal()
+    {
+        this.display = 'none';
+    }
+  
   login()
   {
     console.log(this.loginForm.value);
@@ -27,11 +41,13 @@ export class StudentComponent implements OnInit {
     var pwd = this.loginForm.controls.password.value;
     //firebase.auth().signInWithEmailAndPassword(name,pwd)
     firebase.auth().signInWithEmailAndPassword(name,pwd).then( (success) => {
-    console.log(success);
+    var key = success.user.uid;
+    var refstr = "student1/" + key;
+    console.log(refstr);
     this.currentSection = "student";
-    firebase.auth().onAuthStateChanged((user) => {
-        if(user)
-            console.log(user.uid);
+    firebase.database().ref(refstr).on('value',resp => {
+        console.log(resp.val());
+        this.currentStudent = resp.val();
     });
     
     }, 

@@ -29,8 +29,111 @@
     
     <div>
         <button class="btn btn-primary" (click)="logout()">Logout</button>
-        <h1>Name here</h1>
+        <h1>{{currentStudent.name}} </h1>
+       
         <nav class="navbar navbar-expand-lg navbar-primary bg-warning">
         </nav>
+        <div id="accordion">
+        <div class="card">
+    <div class="card-header " id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Details
+        </button>
+      </h5>
     </div>
+
+    <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <p *ngIf="currentStudent.admission"><b>Enrollment Number: </b>{{currentStudent.admission.enrollNum}}</p>
+          <p *ngIf="currentStudent.mobno"><b>Mobile Number: </b>{{currentStudent.mobno}}</p>
+          <p *ngIf="currentStudent.email"><b>Email: </b>{{currentStudent.email}}</p>
+          <p *ngIf="currentStudent.gender"><b>Gender: </b>{{currentStudent.gender}}</p>
+          <p *ngIf="currentStudent.dob"><b>Date of Birth: </b>{{currentStudent.dob}}</p>
+          <p><b></b></p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header " id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Payments
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Payment Date</th>
+      <th scope="col">Payment Mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of currentStudent.payment; let i = index">
+      <td scope="row">{{i+1}}</td>
+      <td>{{p.amount}}</td>
+      <td>{{p.paymentDate}}</td>
+      <td>{{p.paymentMode}}</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          Results
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo"  aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Semester</th>
+      <th scope="col">Result Date</th>
+      <th scope="col">Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of currentStudent.results; let i = index">
+      <td scope="row">{{i+1}}</td>
+      <td>{{p.semester}}</td>
+      <td>{{p.resultDate}}</td>
+      <td><img style="height: 50px; width: 50px" src="{{p.imageUrl}}"></td>
+        <td><button (click)="viewImage(p.imageUrl)" class="btn btn-sm btn-warning">View</button></td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+    </div>
+  </div>
+  
+</div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <img style="height: 100%; width: 100%;" src="{{displayImage}}">
+      </div>
+      <div class="modal-footer">
+        <button (click)="closeModal()" type="button" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

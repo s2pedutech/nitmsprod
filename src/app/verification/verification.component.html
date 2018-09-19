@@ -1,4 +1,63 @@
 <app-navbar></app-navbar>
-<p>
-  verification works!
-</p>
+
+<br><br>
+
+<!--<button (click)="copy()">Copy</button>-->
+<div style="width: 400px;" class="mx-auto border">
+
+    <h1> NITMS Student Verification</h1>
+<div>
+    <form [formGroup]="verifyForm" (submit)="verify()">
+        <div style="padding-left:20px">
+            <label>
+                Enrollment Number*:<br>
+                <input type="text" formControlName="enrollNum">
+            </label>
+        </div>
+        <div style="padding-left:20px">
+            <label>
+                Date of Birth*:<br>
+                <input type="date" formControlName="dob">
+            </label>
+        </div>
+        <div style="padding-left: 40px">
+            <button class="btn btn-primary" type="submit">Verify</button>
+        </div>
+        
+    </form>
+</div>
+</div>
+
+<div style="padding: 50px;">
+    <div class="card text-white bg-info mb-3">
+    <div class="card-header bg-info" id="headingTwo">
+      <h5 class="mb-0">
+        <h1>Results</h1>
+      </h5>
+    </div>
+    <div id="collapseTwo"  aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Semester</th>
+      <th scope="col">Result Date</th>
+      <th scope="col">Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of results; let i = index">
+      <td scope="row">{{i+1}}</td>
+      <td>{{p.semester}}</td>
+      <td>{{p.resultDate}}</td>
+      <td><img style="height: 50px; width: 50px" src="{{p.imageUrl}}"></td>
+        <td><button (click)="viewImage(p.imageUrl)" class="btn btn-sm btn-warning">View</button></td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+    </div>
+  </div>
+</div>
