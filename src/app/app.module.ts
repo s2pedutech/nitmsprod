@@ -10,6 +10,14 @@ import { DetailsComponent } from './details/details.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import * as firebase from 'firebase';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { AccrediationComponent } from './accrediation/accrediation.component';
+import { CertificationComponent } from './certification/certification.component';
+import { CoursesComponent } from './courses/courses.component';
+import { ExamsComponent } from './exams/exams.component';
+import { PlacementComponent } from './placement/placement.component';
+import { DownloadsComponent } from './downloads/downloads.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 const appRoutes: Routes = [
     {
@@ -43,7 +51,15 @@ const appRoutes: Routes = [
     VerificationComponent,
     HomeComponent,
     DetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutusComponent,
+    AccrediationComponent,
+    CertificationComponent,
+    CoursesComponent,
+    ExamsComponent,
+    PlacementComponent,
+    DownloadsComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

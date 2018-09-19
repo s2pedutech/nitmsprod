@@ -1,4 +1,53 @@
 <app-navbar></app-navbar>
-Hello
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+        <a (click)="selectSection('home')" class="nav-link">Home <span class="sr-only">(current)</span></a>
+    </li>  
+    <li class="nav-item active">
+        <a (click)="selectSection('aboutus')" class="nav-link">About Us <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('accrediation')" class="nav-link" >Accrediation<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('certification')" class="nav-link" >Certification<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('courses')" class="nav-link" >Courses<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('exams')" class="nav-link" >Examination<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('placement')" class="nav-link" >Placement<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('downloads')" class="nav-link">Downloads<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="selectSection('contactus')" class="nav-link">Contact Us<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+</nav>
 
+<section *ngIf="currentSection=='home'" class="oddSection">
+    <div class="text-center">
+        <img class="logoimage" src="assets/img/nitmslogo.png">
+    </div>
+    <div class="text-center mytext">
+        <h1>National Institute Of Technical and Management Studies</h1>
+        <h3>A unit of "Karmveer Gramvikas Sanstha"</h3>
+        <h5>An ISO 9001 : 2015 Certified Organization</h5>
+    </div>
+</section>
+
+<app-aboutus *ngIf="currentSection=='aboutus'"></app-aboutus>
+<app-accrediation *ngIf="currentSection=='accrediation'"></app-accrediation>
+<app-certification *ngIf="currentSection=='certification'"></app-certification>
+<app-courses *ngIf="currentSection=='courses'"></app-courses>
+<app-exams *ngIf="currentSection=='exams'"></app-exams>
+<app-placement *ngIf="currentSection=='placement'"></app-placement>
+<app-downloads *ngIf="currentSection=='downloads'"></app-downloads>
+<app-contactus *ngIf="currentSection=='contactus'"></app-contactus>
 <!--<app-details></app-details>-->
