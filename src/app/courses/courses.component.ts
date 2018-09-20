@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
+courses: Array<any>=[
+{"name":"Management", "img":"assets/img/engg.jpg", "subCourse":{"name":"Management Programs", "categories":[
+{
+    
+}
+]}},
+{"name":"Engineering", "img":"assets/img/management.jpg"},
+{"name":"Diploma/Specialization", "img":"assets/img/diploma.jpg"},
+{"name":"Computer Application", "img":"assets/img/ca.jpg"},
+{"name":"Textile Engineering", "img":"assets/img/textileengg.jpg"},
+{"name":"Textile Management", "img":"assets/img/textilemgmt.jpg"},
+];
   constructor() { }
 
   ngOnInit() {

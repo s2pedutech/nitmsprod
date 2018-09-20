@@ -1,0 +1,16 @@
+.oddSection{
+    background-color: lightskyblue;
+}
+
+.evenSection{
+    background-color: darkgray;
+}
+
+.logoimage {
+    height: 400px;
+    width: 400px;
+}
+.mytext {
+    /* color: #86bc42;*/
+    color: black;
+}
