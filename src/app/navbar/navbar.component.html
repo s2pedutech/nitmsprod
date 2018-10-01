@@ -1,38 +1,39 @@
 <nav class="navbar navbar-expand-lg navbar-primary bg-dark">
-  <a class="navbar-brand" href="#"><img style="height: 50px; width: 50px;" src="assets/img/nitmslogo.png"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+  <a class="navbar-brand" href="#"><img style="height: 50px; width: 50px; color: green;" src="assets/img/nitmslogo.png"><span style="color: #ffc107;">NITMS</span></a>
+  
+</div>
+  <button (click)="toggleCollapsed()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <button class="navbar-toggler btn btn-outline-warning" type="button" data-toggle="collapse"
+           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+           aria-expanded="false" aria-label="Toggle navigation"
+           (click)="toggleCollapsed()">
+          <span class="navbar-toggler-icon"></span>
+          Menu
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+  
+  <div id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+    <!-- <ul class="navbar-nav mr-auto">
+      <li class="nav-item float-right">
         <a [routerLink]="['/home']" class="btn btn-outline-warning my-2 my-sm-0 nav-link">Home</a>
+      </li> 
+    </ul> -->
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a [routerLink]="['/home']" class="btn btn-outline-warning">Home</a>
+      </li> 
+      <li>
+        <a [routerLink]="['/stuLogin']" class="btn btn-outline-warning" href="#">Student Login</a>
       </li>
-      
-      <!--
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
-<!--
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <li>
+        <a [routerLink]="['/stuVerify']" class="btn btn-outline-warning" href="#">Student Verification</a>
       </li>
--->
     </ul>
-      <li class="nav-item">
-        <a [routerLink]="['/stuLogin']" class="btn btn-outline-warning my-2 my-sm-0 nav-link" href="#">Student Login</a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/stuVerify']" class="btn btn-outline-warning my-2 my-sm-0 nav-link" href="#">Student Verification</a>
-      </li>
-  </div>
+ </div>
+</div>
 </nav>

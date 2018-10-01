@@ -53,11 +53,26 @@
       <td>{{p.semester}}</td>
       <td>{{p.resultDate}}</td>
       <td><img style="height: 50px; width: 50px" src="{{p.imageUrl}}"></td>
-        <td><button (click)="viewImage(p.imageUrl)" class="btn btn-sm btn-warning">View</button></td>
+        <td><button (click)="viewImage1(p.imageUrl)" class="btn btn-sm btn-warning">View</button></td>
     </tr>
   </tbody>
 </table>
         </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display1}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-header">
+        <button (click)="closeModal()" type="button" class="btn btn-secondary">Close</button>
+      </div>
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <img style="height: 70%; width: 100%;" src="{{displayImage1}}">
+      </div>
+      
     </div>
   </div>
 </div>

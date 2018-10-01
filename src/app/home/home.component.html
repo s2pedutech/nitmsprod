@@ -1,5 +1,12 @@
 <app-navbar></app-navbar>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+           aria-expanded="false" aria-label="Toggle navigation"
+           (click)="toggleCollapsed()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
 <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
         <a (click)="selectSection('home')" class="nav-link">Home <span class="sr-only">(current)</span></a>
@@ -29,19 +36,46 @@
         <a (click)="selectSection('contactus')" class="nav-link">Contact Us<span class="sr-only">(current)</span></a>
       </li>
     </ul>
+  </div>
 </nav>
 
-<section *ngIf="currentSection=='home'" class="oddSection">
-    <div class="text-center">
-        <img class="logoimage" src="assets/img/nitmslogo.png">
+<section *ngIf="currentSection=='home'" id="oddSection">
+    <div class="row">
+      <div  class="col-12 text-center">
+                <h4>National Institute Of Technical & Management Studies</h4>
+                <h5>A unit of "Karmveer Gramvikas Sanstha"</h5>
+                <h6>An ISO 9001 : 2015 Certified Organization</h6>
+          </div>
     </div>
-    <div class="text-center mytext">
-        <h1>National Institute Of Technical and Management Studies</h1>
-        <h3>A unit of "Karmveer Gramvikas Sanstha"</h3>
-        <h5>An ISO 9001 : 2015 Certified Organization</h5>
-    </div>
-</section>
+    <br>
+      <div  class="row" id="oddSection">
+        <div class="col-sm-4">            
+          <div [@simpleFadeAnimation]="'in'">
+            <img src="assets/img/nitmslogo.png">
+          </div>
+        </div>
 
+        <div  class="col-sm-7"> 
+          
+            <div [@simpleFadeAnimation1]="'in'">
+             
+              <h6 class="text-center"><strong>FROM DIRECTOR'S DESK</strong><br></h6>
+              
+              <p style="padding: 15px;" class="text">I welcome you on behalf of the NITMS and thank you for showing your interest in us. NITMS is a impart excellence in management education, research, and managerial training.</p>
+          <img class="rounded float-right" src="assets/img/NITMSD.jpg" height= "200" width= "150" style="float:left;">
+          
+          <p style="padding: 15px;" text-wrap>
+
+        For a management institute it is imperative to be prepared for the changing environment while teaching its students to do the same. In an era that has come to become the epitome of competition, B-schools face the very pressures that they prepare their graduates for. The pressures of performance and quality apply to B-schools too like never before and the skillful handling of these very pressure makes the NITMS stand out of the crowd.</p>
+
+        <div>
+                
+        </div>
+      </div>
+               
+             </div>
+           </div>
+   </section>
 <app-aboutus *ngIf="currentSection=='aboutus'"></app-aboutus>
 <app-accrediation *ngIf="currentSection=='accrediation'"></app-accrediation>
 <app-certification *ngIf="currentSection=='certification'"></app-certification>
@@ -50,4 +84,5 @@
 <app-placement *ngIf="currentSection=='placement'"></app-placement>
 <app-downloads *ngIf="currentSection=='downloads'"></app-downloads>
 <app-contactus *ngIf="currentSection=='contactus'"></app-contactus>
+
 <!--<app-details></app-details>-->

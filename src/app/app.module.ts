@@ -18,6 +18,12 @@ import { ExamsComponent } from './exams/exams.component';
 import { PlacementComponent } from './placement/placement.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SliderModule } from 'angular-image-slider';
+// import { IonicPageModule } from 'ionic-angular';
+// import { IntroPage } from './intro';
+// import {FileUploadModule } from 'ng2-file-upload';
+// import { Ng2CloudinaryModule } from 'ng2-cloudinary';
 
 const appRoutes: Routes = [
     {
@@ -65,7 +71,12 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     NgbModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    SliderModule,
+    // IonicPageModule.forChild(IntroPage),
+      // FileUploadModule,
+       // Ng2CloudinaryModule    => seems necessary for cl-image
   ],
   providers: [],
   bootstrap: [AppComponent]

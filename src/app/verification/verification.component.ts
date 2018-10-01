@@ -9,6 +9,8 @@ import * as firebase from 'firebase';
 })
 export class VerificationComponent implements OnInit {
 
+    display1='none';
+    displayImage1="";
     studentsNew: Array<any> = [];
     studentsOld: Array<any> = [];
     results: Array<any> = [];
@@ -21,6 +23,17 @@ export class VerificationComponent implements OnInit {
   ngOnInit() {
   }
   
+  viewImage1(img)
+    {
+        //alert("here1");
+        this.display1='block';
+        this.displayImage1 = img;
+    }
+    
+    closeModal()
+    {
+        this.display1 = 'none';
+    }
   /*
   copy()
   {
@@ -82,12 +95,13 @@ export class VerificationComponent implements OnInit {
     
     var ref = firebase.database().ref('student1');
    
-    ref.once('value', resp => {
+    ref.on('value', resp => {
         var students = snapshotToArray(resp);
         console.log(students);
         
         students.filter(x => {
-            
+          if(x.admission && x.admission.enrollNum === e)
+          console.log(x);  
             if(x.admission && x.admission.enrollNum === e && x.dob === d)
                 this.results = x.results;
         });

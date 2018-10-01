@@ -1,16 +1,59 @@
-.oddSection{
-    background-color: lightskyblue;
+#oddSection{
+    background-color: white;
+    height: 400px;
+    /*background-size: 50%;*/
+}
+
+a label{
+    cursor: pointer;
 }
 
 .evenSection{
     background-color: darkgray;
 }
-
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
 .logoimage {
-    height: 400px;
-    width: 400px;
+    height: 10%;
+    width: 20px;
 }
 .mytext {
     /* color: #86bc42;*/
-    color: black;
+    color: yellow;
 }
+.container {
+    position: relative;
+    font-family: Arial;
+    width:1000px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+}
+
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: brown;
+    color: white;
+    padding-left: 0px;
+    padding-right: 50px;
+}
+.text{
+	text-decoration: color= darkblue;
+	text-decoration-color: solid black;
+}
+.img
+	{
+		position:relative;
+		top: 50px;
+		/*left: 10px;*/
+		/*z-index: 1;*/
+	}
