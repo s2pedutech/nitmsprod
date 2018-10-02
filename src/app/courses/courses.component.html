@@ -1,10 +1,9 @@
-<div [@simpleFadeAnimation]  style="padding: 15px;">
+<div [@simpleFadeAnimation2]  style="padding: 15px;">
 <div class="container">
-  <!-- <div   class="row"> -->
-    <div style="border-width: 1px;">
+    <div *ngIf="currentSection === 'courseSection'" style="border-width: 1px;">
 
         <div class="card" class="row">
-          <div  *ngFor="let t of courses" class="col-4">
+          <div (click)="showSubCourses(t)" *ngFor="let t of courses" class="col-4">
             <div>
                 <img src="{{t.img}}" alt="Avatar" style="width:300px;height: 100px;">
               </div>
@@ -13,5 +12,21 @@
         </div>
     </div>
     <br>
+    <div *ngIf="currentSection === 'subSection'"  style="border-width: 1px;">
+
+        <div class="card" class="row">
+          <div (click)="showSubCourses(t)" *ngFor="let t of subcourses" class="col-4">
+            <div>
+                <img src="{{t.img}}" alt="Avatar" style="width:300px;height: 100px;">
+                {{t.name}}
+                <a (click)="showCourses()" href="{{t.syllabus}}">Syllabus</a>
+              </div>
+              <br>
+          </div>  
+        </div>
+        <br>
+        <button (click)="showCourses()" class="btn btn-primary">Back</button>
     </div>
-</div>
+    <br>
+    </div>
+    </div>

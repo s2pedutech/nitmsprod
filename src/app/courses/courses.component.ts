@@ -33,21 +33,43 @@ import {
 })
 export class CoursesComponent implements OnInit {
 
+subcourses: Array<any> = [];
+currentSection = "courseSection";
 courses: Array<any>=[
-{"name":"Management", "img":"assets/img/engg.jpg", "subCourse":{"name":"Management Programs", "categories":[
+{"name":"Management", "img":"assets/img/management.jpg", "subCourse":{"name":"Management Programs", "categories":[
 {
     
 }
 ]}},
-{"name":"Engineering", "img":"assets/img/management.jpg"},
+{"name":"Engineering", "img":"assets/img/engg.jpg", "subCourses" :[
+  {"name" : "Chemical Engineering","img":"assets/img/ch.jpg" , "syllabus" :"assets/docs/chemical.pdf"},
+  {"name" : "Computer Science","img":"assets/img/cs.jpg" ,"syllabus" :"assets/docs/Computer Science.pdf"},
+  {"name" : "Information Technology","img":"assets/img/it.jpg" ,"syllabus" :"assets/docs/IT.pdf"}
+]},
 {"name":"Diploma/Specialization", "img":"assets/img/diploma.jpg"},
-{"name":"Computer Application", "img":"assets/img/ca.jpg"},
+{"name":"Computer Application", "img":"assets/img/ca.jpg", "subCourses": [
+{ "img":"assets/img/bca.jpg", "name":"","syllabus": "assets/docs/BCA.pdf"},
+{ "name":"","img":"assets/img/mca.png", "syllabus": ""},
+]},
 {"name":"Textile Engineering", "img":"assets/img/textileengg.jpg"},
 {"name":"Textile Management", "img":"assets/img/textilemgmt.jpg"},
 ];
-  constructor() { }
+  constructor() {
+  this.currentSection = "courseSection";
+   }
 
   ngOnInit() {
+    this.currentSection = "courseSection";
   }
 
+showCourses() 
+{
+  this.currentSection = "courseSection";          
+}
+showSubCourses(sub)
+{
+  this.subcourses = sub.subCourses;
+  console.log(sub);
+  this.currentSection = "subSection";
+}
 }
