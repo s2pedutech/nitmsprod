@@ -46,6 +46,7 @@
     <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <p *ngIf="currentStudent.admission"><b>Enrollment Number: </b>{{currentStudent.admission.enrollNum}}</p>
+          <p *ngIf="currentStudent.admission"><b>Course: </b>{{currentStudent.admission.category}}</p>
           <p *ngIf="currentStudent.mobno"><b>Mobile Number: </b>{{currentStudent.mobno}}</p>
           <p *ngIf="currentStudent.email"><b>Email: </b>{{currentStudent.email}}</p>
           <p *ngIf="currentStudent.gender"><b>Gender: </b>{{currentStudent.gender}}</p>
